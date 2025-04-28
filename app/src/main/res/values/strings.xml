@@ -13,6 +13,23 @@
     <string name="titulo">Courses</string>
     <string name="titulo_ds">DS</string>
     <string name="subtitulo_ds">Desenvolvimento de sistemas</string>
-    <string name="subdesc_ds">Learn to develop web and mobile applications</string>
-    <string name=""></string>
+    <string name="subdescricao_ds">Learn to develop web and mobile applications</string>
+    <string name="titulo_rds">RDS</string>
+    <string name="subtitulo_rds">Redes de Computadores</string>
+    <string name="subdescricao_rds">Learn to design communication networks</string>
+    <string name="titulo_ele">ELE</string>
+    <string name="subtitulo_ele">Eletroeletrônica</string>
+    <string name="subdescricao_ele">Learn to design eletronic boards</string>
+    <string name="periodo">3 semestres</string>
+    <string name="cursos">Course</string>
+    <string name="cursoEstudante">Find a student</string>
+    <string name="lista_estudante">Students List</string>
+    <string name="date">2025</string>
+    <string name="user1">Luana Oliveira Dias</string>
+    <string name="user2">Pedro da Silva Borges</string>
+    <string name="user3">Ana Clara Gomes</string>
+    <string name="user4">Fabiana Luz Moraes</string>
+    <string name="user5">Carlos Augusto Nobre</string>
+    <string name="user6">Pedro Xavier</string>
+    <string name="rm">20151001018</string>
 </resources>

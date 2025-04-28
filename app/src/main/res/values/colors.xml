@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFC23D</color>
     <color name="blue">#3347B0</color>
+    <color name="gray">#9E9FA4</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="light_white">#CFD4EA</color>
+    <color name="lion_color_purple_white">#9FA9E1</color>
+
 </resources>
