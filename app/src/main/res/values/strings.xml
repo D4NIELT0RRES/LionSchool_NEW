@@ -32,4 +32,21 @@
     <string name="user5">Carlos Augusto Nobre</string>
     <string name="user6">Pedro Xavier</string>
     <string name="rm">20151001018</string>
+    <string name="desempenho">Desempenho</string>
+    <string name="text">001 - Técnico em Desenvolvimento de Sistemas</string>
+    <string name="text1">SIOP</string>
+    <string name="text2">INRI</string>
+    <string name="text3">INNU</string>
+    <string name="text4">HA</string>
+    <string name="text5">SERIES</string>
+    <string name="text6">CAES</string>
+    <string name="number1"></string>
+    <string name="number2"></string>
+    <string name="number3"></string>
+    <string name="number4"></string>
+    <string name="number5"></string>
+    <string name="number6"></string>
+
+
+
 </resources>

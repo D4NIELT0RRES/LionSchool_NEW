@@ -163,7 +163,7 @@ fun CursoScreen(){
 }
 
 @Preview(showSystemUi = true)
- @Composable
+@Composable
 private fun CursoScreenPreview(){
     CursoScreen()
 }
