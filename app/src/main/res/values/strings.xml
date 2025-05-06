@@ -46,6 +46,9 @@
     <string name="number4"></string>
     <string name="number5"></string>
     <string name="number6"></string>
+    <string name="filtro_todos">Todos</string>
+    <string name="filtro_cursando">Cursando</string>
+    <string name="filtro_finalizado">Finalizado</string>
 
 
 

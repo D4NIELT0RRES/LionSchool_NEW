@@ -1,28 +1,10 @@
-package com.example.lionschool.screens
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,28 +21,26 @@ import com.example.lionschool.screens.components.estudanteComponents
 
 @Composable
 fun estudanteScreen() {
-
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White),
         contentAlignment = Alignment.BottomCenter
-    ){
-        Column (
+    ) {
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(25.dp),
+                .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            Row (
+        ) {
+            // Cabeçalho com logo e DS
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(10.dp),
+                    .padding(vertical = 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
-            ){
-                Row (
-                    verticalAlignment = Alignment.CenterVertically
-                ){
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         painter = painterResource(R.drawable.logo),
                         contentDescription = stringResource(R.string.name_school),
@@ -75,26 +54,22 @@ fun estudanteScreen() {
                         fontSize = 15.sp,
                         color = colorResource(R.color.blue),
                         fontWeight = FontWeight.Bold,
-                        fontFamily = FontFamily.Default,
                         modifier = Modifier
-                            .width(50.dp)
-                            .padding(bottom = 10.dp)
+                            .padding(start = 8.dp, bottom = 10.dp)
                     )
                 }
-                Card (
-                    modifier = Modifier
-                        .width(53.dp)
-                        .height(53.dp),
-                    shape = RoundedCornerShape(50.dp),
+                Card(
+                    modifier = Modifier.size(53.dp),
+                    shape = RoundedCornerShape(50),
                     colors = CardDefaults.cardColors(
                         containerColor = colorResource(R.color.yellow)
                     )
-                ){
+                ) {
                     Box(
                         modifier = Modifier
-                            .fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ){
+                            .fillMaxSize(), // Faz o Box ocupar toda a área do Card
+                        contentAlignment = Alignment.Center // Centraliza o conteúdo no centro
+                    ) {
                         Text(
                             text = stringResource(R.string.titulo_ds),
                             fontSize = 20.sp,
@@ -104,22 +79,26 @@ fun estudanteScreen() {
                     }
                 }
             }
-            Card (
+
+            // Linha amarela
+            Card(
                 modifier = Modifier
                     .height(1.dp)
                     .fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     colorResource(R.color.yellow)
                 )
-            ){}
+            ) {}
+
+            // Campo de busca
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(5.dp),
+                    .padding(vertical = 10.dp),
                 shape = RoundedCornerShape(12.dp),
-                label = { Text(text = stringResource(R.string.cursoEstudante))},
+                label = { Text(text = stringResource(R.string.cursoEstudante)) },
                 trailingIcon = {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -132,81 +111,164 @@ fun estudanteScreen() {
                     unfocusedContainerColor = colorResource(R.color.light_gray)
                 )
             )
-            Row (
+
+            // Botões de filtro (ajustado padding inferior)
+            Row(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.Start,
-                verticalAlignment = Alignment.CenterVertically
-            ){
+                    .fillMaxWidth()
+                    .padding(bottom = 4.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 4.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    val buttonHeight = 25.dp
+
+                    Card(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(horizontal = 4.dp)
+                            .height(buttonHeight),
+                        shape = RoundedCornerShape(50),
+                        colors = CardDefaults.cardColors(containerColor = colorResource(R.color.blue))
+                    ) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = stringResource(R.string.filtro_todos),
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+
+                    Card(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(horizontal = 4.dp)
+                            .height(buttonHeight),
+                        shape = RoundedCornerShape(50),
+                        colors = CardDefaults.cardColors(containerColor = colorResource(R.color.yellow))
+                    ) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = stringResource(R.string.filtro_cursando),
+                                color = colorResource(R.color.blue),
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+
+                    Card(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(horizontal = 4.dp)
+                            .height(buttonHeight),
+                        shape = RoundedCornerShape(50),
+                        colors = CardDefaults.cardColors(containerColor = colorResource(R.color.yellow))
+                    ) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = stringResource(R.string.filtro_finalizado),
+                                color = colorResource(R.color.blue),
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+            }
+
+            // Título "Students List" (ajustado padding para reduzir espaço acima)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 0.dp, bottom = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ) {
                 Image(
                     painter = painterResource(R.drawable.capelo),
                     contentDescription = "",
-                    modifier = Modifier
-                        .width(32.dp)
-                        .height(32.dp)
+                    modifier = Modifier.size(24.dp)
                 )
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = stringResource(R.string.lista_estudante),
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    text = "Students List",
                     color = colorResource(R.color.blue),
-                    modifier = Modifier
-                        .padding(horizontal = 5.dp)
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold
                 )
             }
-            val yellow = colorResource(R.color.yellow)
-            val blue = colorResource(R.color.blue)
-            Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .padding(top = 8.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+
+            // Lista de estudantes
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user),
-                    text = stringResource(R.string.user1)
+                    text = stringResource(R.string.user1),
+                    text2 = "20151001018",
+                    timer = "2022",
+                    corLateral = colorResource(R.color.yellow),
+                    logo = painterResource(R.drawable.user)
                 )
-                Spacer(modifier = Modifier.size(8.dp))
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user2),
-                    text = stringResource(R.string.user2)
+                    text = stringResource(R.string.user2),
+                    text2 = "20151001018",
+                    timer = "2022",
+                    corLateral = colorResource(R.color.yellow),
+                    logo = painterResource(R.drawable.user2)
                 )
-                Spacer(modifier = Modifier.size(8.dp))
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user3),
                     text = stringResource(R.string.user3),
-                    corLateral = blue
+                    text2 = "20151001018",
+                    timer = "2025",
+                    corLateral = colorResource(R.color.blue),
+                    logo = painterResource(R.drawable.user3)
                 )
-                Spacer(modifier = Modifier.size(8.dp))
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user4),
-                    text = stringResource(R.string.user4)
+                    text = stringResource(R.string.user4),
+                    text2 = "20151001018",
+                    timer = "2022",
+                    corLateral = colorResource(R.color.yellow),
+                    logo = painterResource(R.drawable.user4)
                 )
-                Spacer(modifier = Modifier.size(8.dp))
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user5),
                     text = stringResource(R.string.user5),
-                    corLateral = blue
+                    text2 = "20151001018",
+                    timer = "2025",
+                    corLateral = colorResource(R.color.blue),
+                    logo = painterResource(R.drawable.user5)
                 )
-                Spacer(modifier = Modifier.size(8.dp))
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user6),
                     text = stringResource(R.string.user6),
-                    corLateral = blue
+                    text2 = "20151001018",
+                    timer = "2025",
+                    corLateral = colorResource(R.color.blue),
+                    logo = painterResource(R.drawable.user6)
                 )
-                Spacer(modifier = Modifier.size(8.dp))
                 estudanteComponents(
-                    logo = painterResource(R.drawable.user6),
                     text = stringResource(R.string.user6),
-                    corLateral = blue
+                    text2 = "20151001018",
+                    timer = "2025",
+                    corLateral = colorResource(R.color.blue),
+                    logo = painterResource(R.drawable.user6)
                 )
             }
         }
     }
 }
 
-@Preview(showSystemUi = true)
+@Preview
 @Composable
-private fun estudanteScreenPreview() {
+private fun estudanteScrenPreview() {
     estudanteScreen()
 }
